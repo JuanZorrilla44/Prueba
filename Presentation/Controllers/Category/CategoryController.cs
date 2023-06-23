@@ -15,6 +15,7 @@ namespace Presentation.Controllers.Category
             _categoryService = categoryService;
         }
 
+        [Middleware.Authorize]
         [HttpGet("GetAllCategoryByStatus/{status}")]
         public IActionResult GetAllCategoryByStatus(int status)
         {
@@ -23,6 +24,7 @@ namespace Presentation.Controllers.Category
             return response.Success ? Ok(response.Value) : BadRequest(response);
         }
 
+        [Middleware.Authorize]
         [HttpGet("GetCategoryById/{categoryId}")]
         public IActionResult GetCategoryById(int categoryId)
         {
@@ -31,6 +33,7 @@ namespace Presentation.Controllers.Category
             return response.Success ? Ok(response.Value) : BadRequest(response);
         }
 
+        [Middleware.Authorize]
         [HttpPost("CreateCategory")]
         public IActionResult CreateCategory(CategoryCreateDto categoryCreate)
         {
@@ -39,6 +42,7 @@ namespace Presentation.Controllers.Category
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
+        [Middleware.Authorize]
         [HttpPut("UpdateCategory")]
         public IActionResult UpdateCategory(CategoryUpdateDto categoryUpdate)
         {
@@ -47,6 +51,7 @@ namespace Presentation.Controllers.Category
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
+        [Middleware.Authorize]
         [HttpPut("ChangeStatusCategory/{categoryId}")]
         public IActionResult ChangeStatusCategory(int categoryId)
         {
@@ -55,6 +60,7 @@ namespace Presentation.Controllers.Category
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
+        [Middleware.Authorize]
         [HttpDelete("DeleteCategory/{categoryId}")]
         public IActionResult DeleteCategory(int categoryId)
         {

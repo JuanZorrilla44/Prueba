@@ -1,10 +1,7 @@
 ﻿using Core.Configuration;
 using Infrastructure;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Presentation.Middleware;
-using System.Text;
 
 namespace Presentation
 {

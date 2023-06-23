@@ -18,7 +18,7 @@ namespace Presentation.Controllers.User
             _loginService = loginService;
         }
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpGet("GetAllUserByStatus/{status}")]
         public IActionResult GetAllUserByStatus(int status)
         {
@@ -27,7 +27,7 @@ namespace Presentation.Controllers.User
             return result.Success ? Ok(result.Value) : BadRequest(result);
         }
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpGet("GetUserByEmail/{email}")]
         public IActionResult GetUserByEmail(string email)
         {
@@ -36,7 +36,7 @@ namespace Presentation.Controllers.User
             return result.Success ? Ok(result.Value) : BadRequest(result);
         }
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpGet("GetUserById/{id}")]
         public IActionResult GetUserById(int id)
         {
@@ -45,7 +45,7 @@ namespace Presentation.Controllers.User
             return result.Success ? Ok(result.Value) : BadRequest(result);
         }
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpPost("CreateUser")]
         public IActionResult CreateUser([FromBody] UserCreateDto userCreate)
         {
@@ -62,7 +62,7 @@ namespace Presentation.Controllers.User
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpPut("UpdateUser")]
         public IActionResult UpdateUser([FromBody] UserUpdateDto userUpdate)
         {
@@ -71,7 +71,7 @@ namespace Presentation.Controllers.User
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpPut("UpdateStatusUser/{id}")]
         public IActionResult UpdateStatusUser(int id)
         {
@@ -81,7 +81,7 @@ namespace Presentation.Controllers.User
         }
 
 
-        [Authorize("1")]
+        [Middleware.Authorize("1")]
         [HttpPut("UpdateRolByUserId/{rolId}/{userId}")]
         public IActionResult UpdateRolByUserId(int rolId, int userId)
         {

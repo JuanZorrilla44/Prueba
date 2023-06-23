@@ -269,6 +269,16 @@ namespace Application.Service.User
 
             try
             {
+                if (long.Parse(user.Phone) <= 0)
+                {
+                    return new ResponseService<string>
+                    {
+                        Error = "el numero no puede venir negativo y ni cero",
+                        Status = EStatusErrors.Data,
+                        Success = false,
+                    };
+                }
+
                 var result = _userCommandRepository.InsertUser(user, _utilsSingleton.Encrypt(user.Password), long.Parse(user.Phone));
                 if (result.Success)
                 {
@@ -310,6 +320,16 @@ namespace Application.Service.User
 
             try
             {
+                if (long.Parse(user.Phone) <= 0)
+                {
+                    return new ResponseService<string>
+                    {
+                        Error = "el numero no puede venir negativo y ni cero",
+                        Status = EStatusErrors.Data,
+                        Success = false,
+                    };
+                }
+
                 var result = _userCommandRepository.UpdateUser(user, long.Parse(user.Phone));
                 if (result.Success)
                 {
